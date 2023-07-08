@@ -8,11 +8,10 @@
   <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 
-<body>
+<body class="container">
+  <div th:insert='fragments/header :: header(menus = ${menus})'>
 
-  <p>Test</p>
-  <button type="button" class="btn btn-primary">This is a button</button>
-
+  </div>
 
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

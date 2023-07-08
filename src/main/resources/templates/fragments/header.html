@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th='https://www.thymeleaf.org'>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg" th:fragment='header (menus)'>
+    <div class="container-fluid">
+      <a class="navbar-brand text-uppercase" href="#">wavenet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-flex mx-auto">
+        <div class="collapse navbar-collapse text-uppercase mx-auto" id="navbarNavAltMarkup">
+          <div class="navbar-nav" th:each="menu : ${menus}">
+            <a class="nav-link" href="" th:text='${menu}'></a>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-primary">SIGN IN</button>
+    </div>
+  </nav>
+
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script>
+    $(document).ready(function () {
+      console.log('Navbar fragment ready')
+    })
+  </script>
+</body>
+
+</html>
