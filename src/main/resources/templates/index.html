@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th='https://www.thymeleaf.org'>
+
+<head>
+  <title>Spring with Thymeleaf</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+  <p>Test</p>
+  <button type="button" class="btn btn-primary">This is a button</button>
+
+
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script>
+    $(document).ready(function () {
+      console.log("Ready")
+    })
+  </script>
+</body>
+
+</html>
