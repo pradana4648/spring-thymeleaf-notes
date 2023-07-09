@@ -15,14 +15,15 @@
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="d-flex mx-auto">
-        <div class="collapse navbar-collapse text-uppercase mx-auto" id="navbarNavAltMarkup">
+      <div class="d-flex ">
+        <div class="collapse navbar-collapse text-uppercase" id="navbarNavAltMarkup">
           <div class="navbar-nav" th:each="menu : ${menus}">
             <a class="nav-link" href="" th:text='${menu}'></a>
           </div>
+          <button type="button" class="btn btn-outline-primary">SIGN IN</button>
         </div>
       </div>
-      <button type="button" class="btn btn-outline-primary">SIGN IN</button>
+
     </div>
   </nav>
 
