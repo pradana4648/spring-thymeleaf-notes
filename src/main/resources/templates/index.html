@@ -13,37 +13,47 @@
   </style>
 </head>
 
-<body class="container">
+<body class="">
   <div th:insert='~{fragments/header :: header(menus = ${menus})}' />
 
-  <div class="d-flex flex-column">
+  <div class="container d-flex flex-column">
     <div class="d-flex flex-row align-items-end">
-      <h1 class="introduction fw-bold">Transform </br> Your <span class="fw-normal fst-italic">Business</span></h1>
+      <h1 style="color: #11112B;" class="introduction fw-bold">Transform </br> Your <span
+          class="fw-normal fst-italic">Business</span></h1>
       <div class="mx-3">
         <img th:src="@{images/cta.svg}" th:alt="'Some text'" height="100px">
       </div>
     </div>
 
-
-    <p class="w-50 align-self-end">
+    <p class="w-50 align-self-end my-5">
       Our team of experts has years of experience in the IT industry and a passion for innovative technology solutions.
       We're dedicated to delivering solutions that are tailored to your unique needs and budget, and that exceed your
       expectations. Click explore now for more.
     </p>
   </div>
 
-  <div class="fw-bold">
-    <p>About</p>
-    <h2 class="fw-bold">We believe that <span class="fw-normal fst-italic">technology</span> can transfrom the world
+  <div class="container fw-bold my-5">
+    <h5 class="fw-bold">About</h5>
+    <h2 style="font-size: 5em;" class="fw-bold">We believe that <span class="fw-normal fst-italic">technology</span>
+      can transfrom the world
     </h2>
-    <small class="fw-normal">
-      That is why we're committed to delivering innovative IT solutions to businesses of all sizes. Our team of
-      experienced professionals is dedicated to helping you achieve your goals and thrive in a rapidly evolving digital
-      landscape. Our
-      goal is to help businesses of all sizes succeed by providing customized solutions that meet their unique
-      needs.
-    </small>
+    <div class="w-75">
+      <small class="fw-normal ">
+        That is why we're committed to delivering innovative IT solutions to businesses of all sizes. Our team of
+        experienced professionals is dedicated to helping you achieve your goals and thrive in a rapidly evolving
+        digital
+        landscape. Our
+        goal is to help businesses of all sizes succeed by providing customized solutions that meet their unique
+        needs.
+      </small>
+    </div>
   </div>
+
+  <div th:insert='fragments/brands :: brands' />
+
+  <div th:insert='fragments/why_us :: why_us(expertises = ${expertises})' />
+
+  <div th:insert='fragments/footer :: footer' />
 
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
