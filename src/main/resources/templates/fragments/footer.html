@@ -1,38 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th='https://www.thymeleaf.org'>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-</head>
-
-<body>
-  <div style="color: #11112B;;" class="container my-5" th:fragment='footer'>
-    <div class="row">
-      <div class="col">
-        <h1 class="text-uppercase fw-bold">Wave<span class="fw-normal">net</span></h1>
-        <img class="img-fluid" th:src="@{images/cta.svg}" alt="">
-      </div>
-      <div class="col">
-        <h5>Newsletter</h5>
-      </div>
-      <div class="col">
-        <h5>Explore</h5>
-      </div>
-      <div class="col">
-        <h5>Contact</h5>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <body>
+    <div style="color: #11112b" class="container my-5" th:fragment="footer">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-uppercase fw-bold">
+            Wave<span class="fw-normal">net</span>
+          </h1>
+          <img class="img-fluid" th:src="@{images/cta.svg}" alt="" />
+        </div>
+        <div class="col">
+          <h5>Newsletter</h5>
+          <div class="input-group">
+            <input
+              class="form-control"
+              id="newsletter"
+              type="text"
+              placeholder="Email Address"
+            />
+            <button class="btn" type="button" id="button-addon2">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <h5>Explore</h5>
+        </div>
+        <div class="col">
+          <h5>Contact</h5>
+        </div>
       </div>
     </div>
-  </div>
-
-  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script>
-    $(document).ready(function () {
-      console.log('Navbar fragment ready')
-    })
-  </script>
-</body>
-
+  </body>
 </html>

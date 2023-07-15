@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th='https://www.thymeleaf.org'>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-</head>
-
-<body>
-  <nav style="color: #11112B;" class="container navbar navbar-expand-lg" th:fragment='header (menus)'>
-    <div class="container-fluid">
-      <a class="navbar-brand text-uppercase fw-bold" href="#">wave<span class="fw-normal">net</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="d-flex ">
-        <div class="collapse navbar-collapse text-uppercase" id="navbarNavAltMarkup">
-          <div class="navbar-nav" th:each="menu : ${menus}">
-            <a class="nav-link" href="" th:text='${menu}'></a>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <body>
+    <nav
+      style="color: #11112b"
+      class="container navbar navbar-expand-lg"
+      th:fragment="header (menus)"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand text-uppercase fw-bold" href="#"
+          >wave<span class="fw-normal">net</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="d-flex">
+          <div
+            class="collapse navbar-collapse text-uppercase"
+            id="navbarNavAltMarkup"
+          >
+            <div class="navbar-nav" th:each="menu : ${menus}">
+              <a class="nav-link" href="" th:text="${menu}"></a>
+            </div>
+            <button type="button" class="btn btn-outline-primary">
+              SIGN IN
+            </button>
           </div>
-          <button type="button" class="btn btn-outline-primary">SIGN IN</button>
         </div>
       </div>
-
-    </div>
-  </nav>
-
-  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script>
-    $(document).ready(function () {
-      console.log('Navbar fragment ready')
-    })
-  </script>
-</body>
-
+    </nav>
+  </body>
 </html>

@@ -1,32 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th='https://www.thymeleaf.org'>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-  <style>
-  </style>
-</head>
-
-<body>
-  <div style="background-color: #11112B;" class="text-white" th:fragment='why_us (expertises)'>
-    <div class="container mx-auto py-5 row">
-      <div class="col" th:each='exp : ${expertises}'>
-        <img class="img-fluid my-5" th:src="@{${exp.image}}" alt="'Image Logo'">
-        <h5 class="fw-bold" th:text="${exp.name}" />
-        <small th:text="${exp.description}" />
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <body>
+    <div
+      style="background-color: #11112b"
+      class="text-white"
+      th:fragment="why_us (expertises)"
+    >
+      <div class="container mx-auto py-5 row">
+        <div class="col" th:each="exp : ${expertises}">
+          <img
+            class="img-fluid my-5"
+            th:src="@{${exp.image}}"
+            alt="'Image Logo'"
+          />
+          <h5 class="fw-bold" th:text="${exp.name}" />
+          <small th:text="${exp.description}" />
+        </div>
       </div>
     </div>
-  </div>
-
-  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script>
-    $(document).ready(function () {
-      console.log('Navbar fragment ready')
-    })
-  </script>
-</body>
-
+  </body>
 </html>
