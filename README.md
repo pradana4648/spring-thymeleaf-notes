@@ -6,3 +6,8 @@ This is Springboot project with Thymeleaf as template engine. Also this project 
 - [ ] Docker support
 - [ ] Responsive
 - [ ] Functionality 
+
+### Planning
+- [ ] Spring Security
+- [ ] JPA (with MySQL or Mongodb)
+- [ ] Testing all with output in report
