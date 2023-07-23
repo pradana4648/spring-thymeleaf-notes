@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th='https://www.thymeleaf.org'>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Spring with Thymeleaf</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 
-<head>
-  <title>Spring with Thymeleaf</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link th:rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-  <style>
-    .introduction {
-      font-size: 7em;
-    }
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    />
+    <!-- Change default style -->
+    <style>
+      @import url(/webjars/font-awesome/css/all.min.css);
 
-    input[type="text"],
+      .introduction {
+        font-size: 7em;
+      }
+
+      .accordion-button:not(.collapsed)::after {
+        content: "\f146";
+        font-family: "Font Awesome 5 Free";
+        color: #11112b;
+        background-image: none;
+      }
+
+      .accordion-button.collapsed {
+        background: #11112b;
+        color: white;
+      }
+
+      .accordion-button::after {
+        content: "\2b";
+        color: white;
+        font-family: "Font Awesome 5 Free";
+        background-image: none;
+      }
+
+      input[type="text"],
       select.form-control {
         background: transparent;
         border: none;
@@ -26,59 +55,86 @@
         -webkit-box-shadow: none;
         box-shadow: none;
       }
-  </style>
-  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.min.css} "/>
-</head>
+    </style>
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/font-awesome/css/all.min.css}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 
-<body class="">
-  <div th:insert='~{fragments/header :: header(menus = ${menus})}' />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  </head>
 
-  <div class="container d-flex flex-column">
-    <div class="d-flex flex-row align-items-end">
-      <h1 style="color: #11112B;" class="introduction fw-bold">Transform </br> Your <span
-          class="fw-normal fst-italic">Business</span></h1>
-      <div class="mx-3">
-        <img th:src="@{images/cta.svg}" th:alt="'Some text'" height="100px">
+  <body>
+    <div th:insert="~{fragments/header :: header(menus = ${menus})}" />
+
+    <div class="container d-flex flex-column">
+      <div class="d-flex flex-row align-items-end">
+        <h1 style="color: #11112b" class="introduction fw-bold">
+          Transform <br />
+          Your <span class="fw-normal fst-italic">Business</span>
+        </h1>
+        <div class="mx-3">
+          <img th:src="@{images/cta.svg}" th:alt="'Some text'" height="100px" />
+        </div>
+      </div>
+
+      <p class="w-50 align-self-end my-5">
+        Our team of experts has years of experience in the IT industry and a
+        passion for innovative technology solutions. We're dedicated to
+        delivering solutions that are tailored to your unique needs and budget,
+        and that exceed your expectations. Click explore now for more.
+      </p>
+    </div>
+
+    <div class="container fw-bold my-5">
+      <h5 class="fw-bold">About</h5>
+      <h2 style="font-size: 5em" class="fw-bold">
+        We believe that <span class="fw-normal fst-italic">technology</span>
+        can transfrom the world
+      </h2>
+      <div class="w-75">
+        <small class="fw-normal">
+          That is why we're committed to delivering innovative IT solutions to
+          businesses of all sizes. Our team of experienced professionals is
+          dedicated to helping you achieve your goals and thrive in a rapidly
+          evolving digital landscape. Our goal is to help businesses of all
+          sizes succeed by providing customized solutions that meet their unique
+          needs.
+        </small>
       </div>
     </div>
 
-    <p class="w-50 align-self-end my-5">
-      Our team of experts has years of experience in the IT industry and a passion for innovative technology solutions.
-      We're dedicated to delivering solutions that are tailored to your unique needs and budget, and that exceed your
-      expectations. Click explore now for more.
-    </p>
-  </div>
+    <div th:insert="fragments/brands :: brands" />
 
-  <div class="container fw-bold my-5">
-    <h5 class="fw-bold">About</h5>
-    <h2 style="font-size: 5em;" class="fw-bold">We believe that <span class="fw-normal fst-italic">technology</span>
-      can transfrom the world
-    </h2>
-    <div class="w-75">
-      <small class="fw-normal ">
-        That is why we're committed to delivering innovative IT solutions to businesses of all sizes. Our team of
-        experienced professionals is dedicated to helping you achieve your goals and thrive in a rapidly evolving
-        digital
-        landscape. Our
-        goal is to help businesses of all sizes succeed by providing customized solutions that meet their unique
-        needs.
-      </small>
-    </div>
-  </div>
+    <div th:insert="fragments/why_us :: why_us(expertises = ${expertises})" />
 
-  <div th:insert='fragments/brands :: brands' />
+    <div th:insert="fragments/blog :: blog" />
 
-  <div th:insert='fragments/why_us :: why_us(expertises = ${expertises})' />
+    <div
+      th:insert="fragments/questions :: questions(questions = ${questions})"
+    />
 
-  <div th:insert='fragments/footer :: footer' />
+    <div th:insert="fragments/footer :: footer" />
 
-  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-  <script>
-    $(document).ready(function () {
-      console.log("Ready")
-    })
-  </script>
-</body>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script>
+      $(document).ready(function () {
+        console.log("Ready");
+      });
 
+      let swiper = new Swiper(".mySwiper", {
+        loop: true,
+        slidesPerView: "2",
+        navigation: {
+          nextEl: ".next-btn",
+          prevEl: ".prev-btn",
+        },
+      });
+    </script>
+  </body>
 </html>
