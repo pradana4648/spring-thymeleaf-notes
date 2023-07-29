@@ -6,10 +6,9 @@ Also this project support Thymeleaf as template engine, Bootstrap 5, Font Awesom
 
 ### Todo 
 - [ ] Docker support
-- [ ] Responsive
-- [ ] Functionality 
 
 ### Planning
+- [ ] JPA
 - [ ] Spring Security
 - [ ] JPA (with MySQL or Mongodb)
 - [ ] Testing all with output in report
