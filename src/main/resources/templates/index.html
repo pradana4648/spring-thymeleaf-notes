@@ -20,6 +20,16 @@
       <button type="button" class="btn btn-danger">Delete</button>
       <button type="button" class="btn btn-warning">Edit</button>
     </div>
+
+    <p th:if="${notes.size() == 0}">Note is empty</p>
+    <div th:each="note: ${notes}" class="border">
+      <p th:text="${note.title}" />
+      <p th:text="${note.description}" />
+      <div>
+        <p th:text="${note.beginDate}" />
+        <p th:text="${note.endDate}" />
+      </div>
+    </div>
   </div>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

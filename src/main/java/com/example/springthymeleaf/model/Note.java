@@ -3,6 +3,7 @@ package com.example.springthymeleaf.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -17,8 +18,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Table(name = "notes")
 public class Note {
   @Id
-  @GeneratedValue
-  @Column(name = "note_id", nullable = false)
+  @GeneratedValue(strategy = GenerationType.UUID)
+  @Column(name = "note_id")
   private String id;
 
   @Column(name = "title")

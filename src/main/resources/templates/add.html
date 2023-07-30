@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <title>Add Note</title>
@@ -12,30 +12,30 @@
 <body>
   <div class="container">
     <h1 class="text-center">Create your own Note</h1>
-    <form class="row gap-3">
+    <form class="row gap-3" action="#" th:action="@{/add}" th:object="${note}" method="post">
       <div class="col">
         <label for="title" class="form-label">Title</label>
-        <input type="text" name="title" class="form-control" placeholder="Your title">
+        <input type="text" class="form-control" placeholder="Your title" th:field="*{title}">
       </div>
       <div class="row">
         <div class="col">
           <label for="begin_date" class="form-label">Begin Date <span class="text-danger">*</span></label>
-          <input type="date" name="begin_date" class="form-control">
+          <input type="date" name="begin_date" class="form-control" th:field="*{beginDate}">
         </div>
         <div class="col">
           <label for="end_date" class="form-label">End Date <span class="text-danger">*</span></label>
-          <input type="date" name="end_date" class="form-control">
+          <input type="date" name="end_date" class="form-control" th:field="*{endDate}">
         </div>
       </div>
       <div class="col">
         <label for="description" class="form-label">Description</label>
-        <textarea rows="5" class="form-control" name="description"
-          placeholder="Your description goes here..."></textarea>
+        <textarea rows="5" class="form-control" placeholder="Your description goes here..."
+          th:field="*{description}"></textarea>
       </div>
       <div class="col-12">
-
         <button type="submit" class="btn btn-primary">Add</button>
         <button type="reset" class="btn btn-danger">Reset</button>
+        <a href="/" class="btn btn-primary">Back</a>
       </div>
 
     </form>
