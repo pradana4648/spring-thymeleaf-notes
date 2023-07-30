@@ -7,7 +7,7 @@ Font Awesome Icons and jQuery 3.
 
 ## Todo
 
-- [ ] JPA
+- [x] JPA
+- [x] Postgresql
 - [ ] Spring Security
-- [ ] JPA (with MySQL or Mongodb)
 - [ ] Testing all with output in report
