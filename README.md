@@ -9,5 +9,5 @@ Font Awesome Icons and jQuery 3.
 
 - [x] JPA
 - [x] Postgresql
+- [ ] CRUD things
 - [ ] Spring Security
-- [ ] Testing all with output in report
