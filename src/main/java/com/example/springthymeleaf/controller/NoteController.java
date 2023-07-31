@@ -1,14 +1,18 @@
 package com.example.springthymeleaf.controller;
 
+import ch.qos.logback.classic.Logger;
 import com.example.springthymeleaf.dto.NoteDto;
 import com.example.springthymeleaf.service.NoteService;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -20,7 +24,6 @@ public class NoteController {
 
   @GetMapping("/")
   public ModelAndView indexPage(Model model) {
-    log.info("Notes is " + service.getNotes());
     model.addAttribute("notes", service.getNotes());
     return new ModelAndView("index");
   }
@@ -33,9 +36,15 @@ public class NoteController {
 
   @PostMapping("/add")
   public ModelAndView addNotePage(@ModelAttribute(name = "note") NoteDto dto) {
-    log.info("Note object form = " + dto);
-
-    service.addNote(dto);
+    log.info("Description = " + dto.getDescription());
+    if (dto.getDescription().isBlank()) {
+      RestTemplate template = new RestTemplate();
+      ResponseEntity<String> result = template.getForEntity(
+          "https://loripsum.net/api/3/short/plaintext", String.class);
+      log.info("Description is empty = " + result.getBody());
+      dto.setDescription(result.getBody());
+      service.addNote(dto);
+    }
     return new ModelAndView("redirect:/");
   }
 }

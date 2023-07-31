@@ -31,6 +31,7 @@
         <label for="description" class="form-label">Description</label>
         <textarea rows="5" class="form-control" placeholder="Your description goes here..."
           th:field="*{description}"></textarea>
+        <small>* leave empty if you want to generate random data</small>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Add</button>
@@ -47,6 +48,7 @@
     $(document).ready(function () {
       console.log("Add page ready")
     })
+
   </script>
 </body>
 
