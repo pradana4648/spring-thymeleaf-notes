@@ -1,10 +1,7 @@
 package com.example.springthymeleaf.controller;
 
-import ch.qos.logback.classic.Logger;
 import com.example.springthymeleaf.dto.NoteDto;
 import com.example.springthymeleaf.service.NoteService;
-import java.util.Map;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@Slf4j
 public class NoteController {
 
   @Autowired
@@ -36,15 +32,12 @@ public class NoteController {
 
   @PostMapping("/add")
   public ModelAndView addNotePage(@ModelAttribute(name = "note") NoteDto dto) {
-    log.info("Description = " + dto.getDescription());
     if (dto.getDescription().isBlank()) {
       RestTemplate template = new RestTemplate();
-      ResponseEntity<String> result = template.getForEntity(
-          "https://loripsum.net/api/3/short/plaintext", String.class);
-      log.info("Description is empty = " + result.getBody());
+      ResponseEntity<String> result = template.getForEntity("https://loripsum.net/api/3/short/plaintext", String.class);
       dto.setDescription(result.getBody());
-      service.addNote(dto);
     }
+    service.addNote(dto);
     return new ModelAndView("redirect:/");
   }
 }
